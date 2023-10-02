@@ -15,7 +15,6 @@ import {
   ModalContent,
   ModalFooter,
   ModalBody,
-  ModalCloseButton,
 } from "@chakra-ui/react";
 import { Header } from "../../components/header";
 import dataJson from "../../utils/data.json";
@@ -160,7 +159,7 @@ const Home = () => {
               >
                 <input
                   type="checkbox"
-                  onChange={({ target }) =>
+                  onChange={() =>
                     setSearch({ ...search, fullTime: !search.fullTime })
                   }
                   style={{
@@ -233,7 +232,7 @@ const Home = () => {
                     >
                       <input
                         type="checkbox"
-                        onChange={({ target }) =>
+                        onChange={() =>
                           setSearch({ ...search, fullTime: !search.fullTime })
                         }
                         style={{
