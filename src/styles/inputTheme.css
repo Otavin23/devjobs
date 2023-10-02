@@ -58,7 +58,8 @@
   display: none;
 }
 
-.custom-checkbox input+label:before {
+.custom-checkbox input+label:before, 
+.custom-dark input+label:before{
   content: '';
   width: 25px;
   height:25px;
@@ -70,6 +71,12 @@
   margin-right: 1rem;
   margin-bottom: 3px;
   cursor:pointer;
+}
+
+
+.custom-dark input+label:before{
+  background: #313743;
+    border: 1px solid #313743;
 }
 
 .custom-checkbox input:checked+label:before {

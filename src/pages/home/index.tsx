@@ -35,6 +35,8 @@ const Home = () => {
     fullTime: false,
   });
 
+  const themeLocal = localStorage.getItem("chakra-ui-color-mode");
+
   const filterData = dataJson.filter((company) => {
     if (search.fullTime) {
       if (
@@ -149,7 +151,11 @@ const Home = () => {
 
             <Flex as="div" align="center" p="1.5rem" h="100%">
               <Box
-                className="custom-checkbox"
+                className={
+                  themeLocal === "light"
+                    ? "custom-checkbox custom-light"
+                    : "custom-checkbox custom-dark"
+                }
                 w="160px"
                 display={{ base: "none", lg: "flex", md: "flex", sm: "none" }}
               >
@@ -164,7 +170,7 @@ const Home = () => {
                   as="label"
                   htmlFor="checkbox-1"
                   fontWeight="700"
-                  color="#000"
+                  color={color}
                 >
                   Full Time Only
                 </Box>
