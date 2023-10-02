@@ -15,6 +15,7 @@ import {
   ModalContent,
   ModalFooter,
   ModalBody,
+  Box,
 } from "@chakra-ui/react";
 import { Header } from "../../components/header";
 import dataJson from "../../utils/data.json";
@@ -91,10 +92,9 @@ const Home = () => {
                   placeholder="Filter by title, companies, expertise..."
                   border="none"
                   pl="1rem"
-                  fontWeight="500"
                   color="#8E8E8E"
+                  variant="unstyled"
                   _placeholder={{
-                    fontWeight: "500",
                     opacity: "0.8",
                     fontSize: "clamp(14px, 1vw, 17px)",
                     whiteSpace: "nowrap",
@@ -134,10 +134,9 @@ const Home = () => {
                   w="100%"
                   border="none"
                   pl="1rem"
-                  fontWeight="600"
                   color="#8E8E8E"
+                  variant="unstyled"
                   _placeholder={{
-                    fontWeight: "500",
                     opacity: "0.8",
                     fontSize: "17px",
                   }}
@@ -149,28 +148,27 @@ const Home = () => {
             </Flex>
 
             <Flex as="div" align="center" p="1.5rem" h="100%">
-              <Flex
-                as="label"
-                align="center"
-                w="150px"
-                color={color}
-                fontWeight="700"
+              <Box
+                className="custom-checkbox"
+                w="160px"
                 display={{ base: "none", lg: "flex", md: "flex", sm: "none" }}
               >
                 <input
+                  id="checkbox-1"
                   type="checkbox"
-                  onChange={() =>
+                  onClick={() =>
                     setSearch({ ...search, fullTime: !search.fullTime })
                   }
-                  style={{
-                    width: "25px",
-                    height: "25px",
-                    cursor: "pointer",
-                    marginRight: "1rem",
-                  }}
                 />
-                Full Time Only
-              </Flex>
+                <Box
+                  as="label"
+                  htmlFor="checkbox-1"
+                  fontWeight="700"
+                  color="#000"
+                >
+                  Full Time Only
+                </Box>
+              </Box>
 
               <Button
                 onClick={onOpen}
@@ -210,6 +208,7 @@ const Home = () => {
                         w="100%"
                         border="none"
                         pl="1rem"
+                        variant="unstyled"
                         fontWeight="400"
                         color="#8E8E8E"
                         _placeholder={{
@@ -222,28 +221,28 @@ const Home = () => {
                       />
                     </Flex>
 
-                    <Flex
-                      as="label"
-                      align="center"
-                      px="2rem"
-                      my="2.5rem"
-                      color={color}
-                      fontWeight="700"
+                    <Box
+                      className="custom-checkbox"
+                      w="100%"
+                      display="flex"
+                      p="1.5rem"
                     >
                       <input
+                        id="checkbox-2"
                         type="checkbox"
-                        onChange={() =>
+                        onClick={() =>
                           setSearch({ ...search, fullTime: !search.fullTime })
                         }
-                        style={{
-                          width: "25px",
-                          height: "25px",
-                          cursor: "pointer",
-                          marginRight: "1rem",
-                        }}
                       />
-                      Full Time Only
-                    </Flex>
+                      <Box
+                        as="label"
+                        htmlFor="checkbox-2"
+                        fontWeight="700"
+                        color="#000"
+                      >
+                        Full Time Only
+                      </Box>
+                    </Box>
                   </ModalBody>
 
                   <ModalFooter>
@@ -300,18 +299,24 @@ const Home = () => {
           <Flex as="nav" mt="5rem">
             <UnorderedList
               listStyleType="none"
-              display="flex"
+              display="grid"
               justifyContent="space-between"
-              flexDirection={{ lg: "row", md: "row", sm: "column" }}
+              gridTemplateColumns={{
+                base: "100%",
+                lg: "32% 32% 32%",
+                md: "48% 48%",
+                sm: "100%",
+              }}
+              gridColumnGap="1rem"
+              gridTemplateRows="auto"
+              //flexDirection={{ lg: "row", md: "row", sm: "column" }}
               w="100%"
-              flexWrap="wrap"
               m="0"
             >
               {filterData.map((company) => (
                 <ListItem
                   key={company.id}
                   bg={bgContent}
-                  w={{ base: "100%", lg: "400px", md: "320px", sm: "100%" }}
                   p="1.5rem"
                   borderRadius="0.6rem"
                   pos="relative"
@@ -341,8 +346,8 @@ const Home = () => {
                       mt="0.8rem"
                       mb="0.8rem"
                       color={color}
-                      fontWeight="700"
-                      fontSize="clamp(16px, 1vw, 20px)"
+                      fontWeight="800"
+                      fontSize="clamp(17px, 2vw, 20px)"
                       cursor="pointer"
                       transition="0.3s"
                       _hover={{

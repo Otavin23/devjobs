@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 const Header = () => {
   const { toggleColorMode } = useColorMode();
 
+  const themeLocal = localStorage.getItem("chakra-ui-color-mode");
+
   return (
     <>
       <Box
@@ -46,7 +48,14 @@ const Header = () => {
 
             <Box as="label" className="label__checkTheme">
               <input type="checkbox" className="input__checkbox" />
-              <span className="check" onClick={toggleColorMode}></span>
+              <span
+                className={
+                  themeLocal === "light"
+                    ? "check " + "check__before"
+                    : "check " + "check__after"
+                }
+                onClick={toggleColorMode}
+              ></span>
             </Box>
 
             <Image

@@ -18,7 +18,8 @@ import dataJson from "../../utils/data.json";
 const CompanyInformation = () => {
   const bgContent = useColorModeValue("#fff", "#19202d");
   const color = useColorModeValue("#000", "#fff");
-  const button = useColorModeValue("#EFEFF9", "#303642");
+  const button = useColorModeValue("#eeeffc", "#303642");
+  const buttonColor = useColorModeValue("#5964e0", "#fff");
 
   const { id } = useParams();
 
@@ -123,7 +124,7 @@ const CompanyInformation = () => {
               <Link to={companyFilter[0].website} target="_blank">
                 <Button
                   bg={button}
-                  color={color}
+                  color={buttonColor}
                   fontWeight="700"
                   px="1.5rem"
                   py="1rem"
