@@ -3,7 +3,7 @@
 ## Demo 💻 
 
 
-<img src=".github/vizerClone.gif" alt="" />
+<img src=".github/devjobs.gif" alt="" />
 <hr>
  
 ## hosted website 
